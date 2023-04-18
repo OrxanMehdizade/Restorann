@@ -41,7 +41,6 @@ namespace Restorann.Views
             restoranlar.Add(new Restoran() { Name = "Stolichnaya Vodka 1L -> Qiymet: ", Price = 43.99, ImageUrl = "https://e7.pngegg.com/pngimages/157/636/png-clipart-vodka-vodka.png" });
             restoranlar.Add(new Restoran() { Name = "Lchaım Vodka 1L -> Qiymet: ", Price = 45.99, ImageUrl = "https://w7.pngwing.com/pngs/77/158/png-transparent-liqueur-wine-cocktail-non-alcoholic-drink-summer-drinks-distilled-beverage-cocktail-wine.png" });
             restoranlar.Add(new Restoran() { Name = "Qırmızı Şərab 1L -> Qiymet: ", Price = 49.99, ImageUrl = "https://e7.pngegg.com/pngimages/998/236/png-clipart-lambrusco-liqueur-red-wine-champagne-wine-glass-wine-glass.png" });
-            restoranlar.Add(new Restoran() {ImagebackUrl= "https://www.pinpng.com/pngs/m/11-115636_new-menu-png-book-cover-transparent-png.png" });
 
 
 
@@ -55,12 +54,14 @@ namespace Restorann.Views
         //void ExecuteShowCommandd(object? parameter) => sebet.Text += restoran.Price;
         //bool CanExecuteShowCommandd(object? parameter) => true;
 
+        double? FinalDebt = 0;
         private void Button_Click_sebete(object sender, RoutedEventArgs e)
         {
             foreach (var itme in restoranlar)
             {
-                sebet.Text += itme.Price.ToString();
+                FinalDebt += itme.Price ?? 0;
             }
+            sebet.Text = FinalDebt.ToString();
 
         }
 
